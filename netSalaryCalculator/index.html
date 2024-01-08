@@ -8,39 +8,48 @@
 </head>
 <body>
     <h1>Net Salary Calculator</h1>
-    
-    <div class="form-container">
-        <form id="salaryForm">
-            <label for="basicSalary">Basic Salary:</label>
-            <input type="number" id="basicSalary" required>
-            
-            <label for="benefits">Benefits:</label>
-            <input type="number" id="benefits" required>
-            
-            <button type="button" onclick="calculateNetSalary()">Calculate Net Salary</button>
-        </form>
-    </div>
 
-    <div id="calculationDetails" class="output-container">
-        <h2>Calculation Details</h2>
-        <p id="calculationLogic">Calculation Logic: The net salary is calculated by subtracting PAYE, NHIF, and NSSF deductions from the gross salary.</p>
-        <p id="formulas">Formulas:</p>
-        <ul>
-            <li id="payeeFormula">PAYE = Total Income * Applicable KRA Rate</li>
-            <li id="nhifFormula">NHIF Deductions = Total Income * NHIF Rate</li>
-            <li id="nssfFormula">NSSF Deductions = Total Income * NSSF Rate</li>
-            <li id="grossSalaryFormula">Gross Salary = Total Income - PAYE - NHIF Deductions - NSSF Deductions</li>
-            <li id="netSalaryFormula">Net Salary = Gross Salary - PAYE - NHIF Deductions - NSSF Deductions</li>
-        </ul>
-    </div>
+    <div class="container">
+        <div class="input-container">
+            <form id="salaryForm">
+                <h2>Input Form</h2>
+                <label for="basicPay">Basic Pay:</label>
+                <input type="number" id="basicPay" required>
 
-    <div id="resultContainer" class="output-container">
-        <h2>Net Salary Calculation Result</h2>
-        <p id="payeeCalculation">PAYE Calculation: <span id="payeeResult"></span></p>
-        <p id="nhifCalculation">NHIF Deductions Calculation: <span id="nhifResult"></span></p>
-        <p id="nssfCalculation">NSSF Deductions Calculation: <span id="nssfResult"></span></p>
-        <p id="grossSalaryCalculation">Gross Salary Calculation: <span id="grossSalaryResult"></span></p>
-        <p id="netSalaryCalculation">Net Salary Calculation: <span id="netSalaryResult"></span></p>
+                <label for="houseAllowance">House Allowance:</label>
+                <input type="number" id="houseAllowance" required>
+
+                <label for="benefits">Total Benefits (Cash and Non-Cash):</label>
+                <input type="number" id="benefits" required>
+
+                <label for="otherEarnings">Other Earnings:</label>
+                <input type="number" id="otherEarnings" required>
+
+                <label for="absenteeism">Absenteeism Deductions:</label>
+                <input type="number" id="absenteeism" required>
+
+                <button type="button" onclick="calculateNetSalary()">Calculate Net Salary</button>
+            </form>
+        </div>
+
+        <div id="output-container" class="output-container">
+            <h2>Output Form</h2>
+            <div id="calculationDetails">
+                <p id="grossPayFormula">Gross Pay = Basic Pay + House Allowance + Benefits - Absenteeism</p>
+                <p id="taxableIncomeFormula">Taxable Income = Gross Pay - Deductible Reliefs</p>
+                <p id="payeFormula">PAYE = Taxable Income * Appropriate Tax Rate</p>
+                <p id="grossTaxPayableFormula">Gross Tax Payable = Taxable Income - PAYE</p>
+                <p id="netSalaryFormula">Net Salary = Taxable Income - PAYE - NHIF</p>
+            </div>
+
+            <div id="resultContainer" class="result-container">
+                <p id="grossPayCalculation">Gross Pay Calculation: <span id="grossPayResult"></span></p>
+                <p id="taxableIncomeCalculation">Taxable Income Calculation: <span id="taxableIncomeResult"></span></p>
+                <p id="payeCalculation">PAYE Calculation: <span id="payeResult"></span></p>
+                <p id="grossTaxPayableCalculation">Gross Tax Payable Calculation: <span id="grossTaxPayableResult"></span></p>
+                <p id="netSalaryCalculation">Net Salary Calculation: <span id="netSalaryResult"></span></p>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
