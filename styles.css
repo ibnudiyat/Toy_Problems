@@ -1,0 +1,29 @@
+.left {
+    height: 100%;
+    width: 25%;
+    float: left;
+    padding: 50px;
+
+     
+}
+.centre {
+    height: 100%;
+    width: 25%;
+    float: left;
+    padding: 50px;
+
+     
+}
+.right {
+    height: 100%;
+    width: 24%;
+    float: right;
+    padding: 50px;
+     
+}
+
+.welcome {
+    font-weight: bold;
+    text-align: center;
+    color: blue;
+}
